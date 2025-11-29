@@ -1,0 +1,22 @@
+streamlit>=1.28.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.17.0
+yfinance>=0.2.40
+pyarrow>=14.0.0
+scipy>=1.11.0
+scikit-learn>=1.3.0  # For Ledoit-Wolf covariance shrinkage
+
+# Sentiment Analysis
+python-dotenv>=1.0.0
+requests>=2.31.0
+transformers>=4.30.0
+torch>=2.0.0
+anthropic>=0.18.0  # Claude API for sentiment analysis
+
+# Additional dependencies
+python-dateutil>=2.8.0
+
+# Database
+psycopg2-binary>=2.9.0  # PostgreSQL adapter
+sqlalchemy>=2.0.0  # Database ORM
