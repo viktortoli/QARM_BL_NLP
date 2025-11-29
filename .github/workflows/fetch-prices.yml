@@ -2,7 +2,7 @@ name: Fetch Prices
 
 on:
   schedule:
-    # Runs at 2 AM UTC every day
+    # Runs at 2 AM UTC every day.
     - cron: '0 2 * * *'
 
   workflow_dispatch:
