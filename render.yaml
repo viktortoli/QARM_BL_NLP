@@ -1,0 +1,26 @@
+databases:
+  # PostgreSQL Database (Free tier: 256MB, persists across deployments)
+  - name: stocktwit-db
+    databaseName: stocktwit
+    plan: free  # Free tier includes 256MB storage
+
+services:
+  # Main Streamlit Web App
+  - type: web
+    name: stocktwit-app
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app/main.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FINNHUB_API_KEY
+        sync: false  # You'll add this in Render dashboard
+      - key: DATABASE_URL
+        fromDatabase:
+          name: stocktwit-db
+          property: connectionString
+
+# Daily data fetching is handled by GitHub Actions (free)
+# See .github/workflows/daily-fetch.yml
