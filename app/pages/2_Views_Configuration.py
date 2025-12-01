@@ -356,7 +356,8 @@ def main():
             st.caption("Recent news sentiment (7 days)")
 
             try:
-                sentiment_data = load_sentiment_data(tuple(st.session_state.selected_tickers))
+                with st.spinner("Loading sentiment..."):
+                    sentiment_data = load_sentiment_data(tuple(st.session_state.selected_tickers))
 
                 if sentiment_data:
                     display_sentiment_table(sentiment_data, show_distribution=False)
